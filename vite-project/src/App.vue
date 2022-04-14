@@ -1,10 +1,10 @@
 <script setup lang="ts">
-    import {reactive} from 'vue';  // 实现复杂类型的响应式
     
 </script>
 
 <template>
-  
+
+
 </template>
 
 <style>

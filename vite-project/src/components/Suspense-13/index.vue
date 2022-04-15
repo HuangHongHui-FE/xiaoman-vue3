@@ -9,9 +9,10 @@
 
 <script setup lang="ts">
     import {axios} from './server'
-    let list = await axios('./data.json')
-    console.log(list)
 
+    let list = await axios('./data.json')
+
+    console.log(list)
 </script>
 
 

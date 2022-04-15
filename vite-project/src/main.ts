@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './12-slot插槽-App.vue'
+import App from './App.vue'
 
 import './assets/css/reset.less'  //样式重置
 

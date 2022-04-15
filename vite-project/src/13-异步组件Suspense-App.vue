@@ -1,8 +1,5 @@
 <script setup lang="ts">
-    
-
     import {defineAsyncComponent} from 'vue'
-
     
     // import AsyncCom from './components/Suspense-13/index.vue'
 

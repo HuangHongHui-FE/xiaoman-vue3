@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './22-v-model父子组件间-App.vue'
 
 import './assets/css/reset.less'  //样式重置
 

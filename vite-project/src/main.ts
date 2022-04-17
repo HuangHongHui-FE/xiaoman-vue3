@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './25-hooks-App.vue'
+import App from './App.vue'
 
 import './assets/css/reset.less'  //样式重置
 
@@ -29,6 +29,31 @@ import './assets/css/reset.less'  //样式重置
 // let app = createApp(App)
 // app.use(store)
 // app.mount('#app')
+
+
+
+// 26.  全局函数和变量
+// let app = createApp(App)
+
+// // 用!!!!!!!的时候可能会报错，来个声明文件   !!!!
+
+// type Filter = {
+//     format: <T>(str: T) => string
+// }
+// declare module '@vue/runtime-core' {
+//     export interface ComponentCustomProperties {
+//         $filters: Filter,
+//         $env: string
+//     }
+// }
+// app.config.globalProperties.$filters = {
+//     format <T>(str: T):string {  // 泛型T, 返回的是string
+//         return `真^${str}`
+//     }
+// }
+// app.config.globalProperties.$env = 'dev'
+// app.mount('#app')
+
 
 
 

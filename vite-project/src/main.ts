@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './27-loading-plugin封装-App.vue'
 
 import './assets/css/reset.less'  //样式重置
 
@@ -57,4 +57,25 @@ import './assets/css/reset.less'  //样式重置
 
 
 
-createApp(App).mount('#app')
+// 27. install插件, loading插件
+
+// 定义声明文件
+declare module '@vue/runtime-core' {
+    export interface ComponentCustomProperties {
+        $loading: {
+            show: () => void,
+            hide: () => void
+        }
+    }
+}
+
+import Loading from './components/Loading'
+let app = createApp(App)
+app.use(Loading)  //注册插件
+app.mount('#app')
+
+
+
+
+
+// createApp(App).mount('#app')

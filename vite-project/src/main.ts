@@ -1,9 +1,13 @@
 import { createApp } from 'vue'
-import App from './22-v-model父子组件间-App.vue'
+import App from './App.vue'
 
 import './assets/css/reset.less'  //样式重置
 
-import Card from './components/Card/index.vue'
+
+// 10. 全局组件注册，组件名，组件实例，createApp会返回自身实例
+// import Card from './components/Card/index.vue'
+// createApp(App).component('Card', Card).mount('#app')
+
 
 // 19: mitt
 // import mitt from 'mitt'
@@ -18,8 +22,14 @@ import Card from './components/Card/index.vue'
 // app.mount('#app')
 
 
-// 10. 全局组件注册，组件名，组件实例，createApp会返回自身实例
-// createApp(App).component('Card', Card).mount('#app')
+
+// pinia
+import {createPinia} from 'pinia'
+const store = createPinia()
+let app = createApp(App)
+app.use(store)
+app.mount('#app')
 
 
-createApp(App).mount('#app')
+
+// createApp(App).mount('#app')

@@ -23,13 +23,13 @@ import './assets/css/reset.less'  //样式重置
 
 
 
-// pinia
-import {createPinia} from 'pinia'
-const store = createPinia()
-let app = createApp(App)
-app.use(store)
-app.mount('#app')
+// 24. pinia
+// import {createPinia} from 'pinia'
+// const store = createPinia()
+// let app = createApp(App)
+// app.use(store)
+// app.mount('#app')
 
 
 
-// createApp(App).mount('#app')
+createApp(App).mount('#app')

@@ -28,6 +28,11 @@
         <div>
             getters: {{Test.newName}}
         </div>
+
+        <!-- 7 -->
+        <div>
+            <button @click="reset">reset</button>
+        </div>
     </div>
 </template>
 
@@ -87,6 +92,32 @@ const change4 = () => {
 const change5 = () => {
     Test.setUser2()
 }
+
+// 6. 一些api方法,
+// 重置数据
+const reset = () => {
+    Test.$reset()
+}
+
+// 更改store就会触发
+Test.$subscribe((args:any, state:any) => {
+    console.log('=====>', args)  //包含一些新旧值，Key等等
+    console.log('=====>', state)
+}, {
+    detached: true,
+    deep: true,
+    flush: 'post'
+})
+
+// 调用action会触发
+Test.$onAction((args:any) => {
+    args.after(()=>{  //都会在最后执行
+        console.log('after')
+    })
+    // args.onError来捕获错误
+    // args.args来捕获到传递的参数
+    console.log(args)
+}, true)  //第二个参数true, 这个组件销毁$onAction监听依然存活
 
 </script>
 

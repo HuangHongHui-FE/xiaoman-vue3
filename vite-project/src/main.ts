@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './23-Directive自定义指令盒子拖动-App.vue'
 
 import './assets/css/reset.less'  //样式重置
 

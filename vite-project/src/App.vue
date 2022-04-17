@@ -12,7 +12,22 @@
             pinia: {{current}} == {{name}}
             <button @click="change3">结构Test对象</button>
         </div>
-        
+
+        <!-- 4 -->
+        <div>
+            <p>actions-user: {{Test.user}}</p>
+            <button @click="change4">action的同步写法</button>
+        </div>
+
+        <div>
+            <h2>action的异步{{Test.user2}}</h2>
+            <button @click="change5">异步</button>
+        </div>
+
+        <!-- 6.1 -->
+        <div>
+            getters: {{Test.newName}}
+        </div>
     </div>
 </template>
 
@@ -63,6 +78,15 @@ const change3 = () => {
 }
 
 
+// 4. action的同步异步
+const change4 = () => {
+    Test.setUser()
+}
+
+// 5. action异步
+const change5 = () => {
+    Test.setUser2()
+}
 
 </script>
 

@@ -115,6 +115,30 @@ const routes:Array<RouteRecordRaw> = [
 const router = createRouter({
     history:createWebHistory(),
     // history:createWebHashHistory(),
+
+    // 12. 滚动行为
+    scrollBehavior: (to, from, savePosition) => {
+        // 1. 同步
+        // console.log(savePosition);
+        // // 可以记录切换页面前的页面滚动距离！！！
+        // if(savePosition){  // 如果有滚动条
+        //     return savePosition
+        // }else{
+        //     return {
+        //         top: 0  // 这里不同的router版本有不同
+        //     }
+        // }
+
+
+        // 2. 异步
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({
+                    top: 999
+                })
+            }, 2000);
+        })
+    },
     routes
 })
 

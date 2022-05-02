@@ -77,13 +77,13 @@ import './assets/css/reset.less'  //样式重置
 
 
 // 28. router
-import router from './router'
-let app = createApp(App)
+// import router from './router'
+// let app = createApp(App)
 
 
-app.use(router)
-app.mount("#app")
+// app.use(router)
+// app.mount("#app")
 
 
 
-// createApp(App).use(router).mount('#app')
+createApp(App).mount('#app')

@@ -7,9 +7,11 @@ const VNode = createVNode(loadingBar)
 render(VNode, document.body)
 
 
+// 10. 
 declare module 'vue-router'{
     interface RouteMeta {
-        title: string
+        title: string, 
+        transition: string
     }
 }
 
@@ -21,7 +23,10 @@ const routes:Array<RouteRecordRaw> = [
         name: 'Login',
         component: () => import('../components/Login_Register/Login/index.vue'),
         meta: {
-            title: '登录页面'
+            title: '登录页面',
+
+            // 11. 路由过渡动效
+            transition: 'animate__fadeIn'
         },
         
         // 4. 
@@ -69,7 +74,7 @@ const routes:Array<RouteRecordRaw> = [
                     bbb: () => import('../components/Login_Register/Register/index.vue'),
                     ccc: () => import('../components/Login_Register/Register/index.vue')
                 }
-            },
+            }
         ]
     }
 
@@ -118,6 +123,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     VNode.component?.exposed?.startLoading()
 
+    // 10. 
     document.title = to.meta.title
 })
 

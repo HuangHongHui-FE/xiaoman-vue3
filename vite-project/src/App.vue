@@ -27,12 +27,20 @@
         </div>
         <h1>小满最好</h1>
         <!-- <router-view></router-view> -->
+
+        <!-- 11. Component是VNode -->
+        <router-view #default="{route, Component}">
+            <transition :enter-active-class="`animate_animated ${route.meta.transition}`">
+                <component :is="Component"></component>
+            </transition>
+        </router-view>
     </div>
 </template>
 
 
 
 <script setup lang="ts">
+import 'animate.css'
     import {useRouter} from 'vue-router'
     // import loadingBar from './components/loadingBar.vue'
     const router = useRouter()

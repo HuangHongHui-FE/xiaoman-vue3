@@ -40,7 +40,7 @@
             
         </main>
         <footer class="footer">
-            <slot name="footer"></solt>
+            <!-- <slot name="footer"></solt> -->
         </footer>
     </div>
 </template>

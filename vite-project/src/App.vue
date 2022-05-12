@@ -1,41 +1,45 @@
-<template>
-    
-</template>
-
-
 <script setup lang="ts">
-import axios from 'axios'
-import {onMounted} from 'vue'
-import {useRouter} from 'vue-router'
-const router = useRouter();
-console.log(router)
+    import Dialog from './components/Dialog/index.vue'
 
-// 根据登录时，用户名密码，返回不同的·路由数据
-const initRouter = async () => {
-    let res = await axios.get('http://localhost:9999/login', {params: {
-        user: 'admin', password: '123456'
-    }})
-    console.log(res)
-    console.log(router)
-    res.data.route.forEach((v:any) => {
-        // addRoute
-        router.addRoute({
-            path: v.path,
-            name: v.name,
-            component: ()=>import(`../views/${v.component}`)
-        })
-    })
-
-    console.log(router.getRoutes());
-}
-
-onMounted(() => {
-    initRouter()
-})
-
+    import {reactive, ref} from 'vue'
+    let name = ref('footer')
 </script>
 
 
-<style scoped lang="less">
+<template>
+    <!-- 首字母必须大写 -->
+    <Dialog>
+        <!-- 具名插槽 -->
+        <!-- <template v-slot:header> -->
+            <!-- 简写 -->
+        <template #header>
+            <div>
+                上
+            </div>
+        </template>
+        
+        <!-- 默认插槽 -->
+        <!-- <template v-slot="{data, index}"> -->
+        <!-- 简写 -->
+        <template #default="{data, index}">
+            <div>
+                {{data}} -- {{index}}
+            </div>
+        </template>
+        <template v-slot:footer>
+            <div>
+                下
+            </div>
+        </template>
+
+        <!-- 动态插槽, 通过动态改name -->
+        <template #[name]>
+            <div>我在哪</div>
+        </template>
+    </Dialog>
+</template>
+
+
+<style scoped>
 
 </style>

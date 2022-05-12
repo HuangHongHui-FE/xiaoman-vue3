@@ -10,6 +10,9 @@
         comName: any
     }
 
+    console.log(markRaw(A))
+    console.log(A)
+
     // reactive本身就有proxy代理，使用组件的markRaw跳过代理 
     const data = reactive<Tabs[]>([
         {
